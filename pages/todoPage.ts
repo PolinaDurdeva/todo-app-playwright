@@ -27,8 +27,8 @@ export class TodoPage {
     
     async completeTodoItem(index: number) {
         const firstTodo = this.todoItems.nth(index);
-        await firstTodo.getByRole("checkbox").check();
-        await expect(firstTodo).toHaveClass("completed");
+        await firstTodo.getByRole('checkbox').check();
+        await expect(firstTodo).toHaveClass('completed');
     }
 
     async clearCompletedItems() {

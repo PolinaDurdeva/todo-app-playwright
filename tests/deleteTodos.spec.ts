@@ -1,13 +1,13 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from '@playwright/test';
 import {
   SELECTORS,
   TODO_ITEMS,
   checkNumberOfTodosInLocalStorage,
   createDefaultTodos,
-} from "../support/todoScreen";
+} from '../support/todoScreen';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("https://todomvc.com/examples/react/#/");
+  await page.goto('https://todomvc.com/examples/react/#/');
 });
 // beforeEach(async ({ page }) => {
 //     // ...
@@ -16,8 +16,8 @@ test.beforeEach(async ({ page }) => {
 //     }, testConfigJson);
 //   });
 
-test.describe("Delete item", () => {
-  test("@smoke - should allow me to delete an item", async ({ page }) => {
+test.describe('Delete item', () => {
+  test('@smoke - should allow me to delete an item', async ({ page }) => {
     await createDefaultTodos(page);
 
     const todoItems = page.locator(SELECTORS.todoItems);
@@ -32,7 +32,7 @@ test.describe("Delete item", () => {
 
     // Explicitly assert left items.
     await expect(todoItems).toHaveText([TODO_ITEMS[0], TODO_ITEMS[2]]);
-    await expect(page.locator(SELECTORS.todoCount)).toHaveText("2 items left");
+    await expect(page.locator(SELECTORS.todoCount)).toHaveText('2 items left');
     await checkNumberOfTodosInLocalStorage(page, 2);
   });
 });
